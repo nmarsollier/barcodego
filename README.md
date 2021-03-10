@@ -25,8 +25,8 @@ Generación de QR
 
 | Name     | Type       | Description                           |
 |:---------|:-----------|:--------------------------------------|
-|  code | String | <p>Código a generar - Requerido</p>|
-|  size | String | <p>Tamaño 100|200|400|600|800 - Opcional</p>|
+|  code | String | <p>Código a generar</p>|
+|  size | String | <p>Tamaño 100 200 400 600 800 (opc)</p>|
 
 
 ### Success Response

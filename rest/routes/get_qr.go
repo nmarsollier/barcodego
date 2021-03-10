@@ -15,9 +15,9 @@ import (
  *
  * @apiDescription Obtiene un codigo QR
  *
- * @apiParam  {String} code Código a generar - Requerido
+ * @apiParam  {String} code Código a generar
  *
- * @apiParam  {String} size Tamaño 100|200|400|600|800 - Opcional
+ * @apiParam  {String} size Tamaño 100 200 400 600 800 (opc)
  *
  * @apiSuccessExample {png} Respuesta
  *    Imagen en formato png
