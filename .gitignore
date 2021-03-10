@@ -1,0 +1,21 @@
+# Logs
+*.log
+.history
+www
+
+# Dependencies
+node_modules
+
+# Trash
+.DS_Store
+.idea
+.vscode
+
+# Coverage generated files
+reports
+coverage
+build
+build-server	
+i18n
+
+.nyc_output/
