@@ -3,29 +3,30 @@
 
 Generación de QR
 
-- [Barcode](#barcode)
-	- [Obtener Barcode](#obtener-barcode)
+- [QR](#qr)
+	- [Obtener QR](#obtener-qr)
 	
 
 
-# <a name='barcode'></a> Barcode
+# <a name='qr'></a> QR
 
-## <a name='obtener-barcode'></a> Obtener Barcode
+## <a name='obtener-qr'></a> Obtener QR
 [Back to top](#top)
 
-<p>Obtiene un barcode</p>
+<p>Obtiene un codigo QR</p>
 
-	GET /barcode/:barcode
+	GET /qr?code=1234
 
 
 
-### Examples
 
-size : Parametro url o header
 
-```
-size=[100|200|400|600|800]
-```
+### Parameter Parameters
+
+| Name     | Type       | Description                           |
+|:---------|:-----------|:--------------------------------------|
+|  code | String | <p>Código a generar - Requerido</p>|
+|  size | String | <p>Tamaño 100|200|400|600|800 - Opcional</p>|
 
 
 ### Success Response

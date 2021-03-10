@@ -9,13 +9,15 @@ import (
 )
 
 /**
- * @api {get} /barcode/:barcode Obtener Barcode
- * @apiName Obtener Barcode
- * @apiGroup Barcode
+ * @api {get} /qr?code=1234 Obtener QR
+ * @apiName Obtener QR
+ * @apiGroup QR
  *
- * @apiDescription Obtiene un barcode
+ * @apiDescription Obtiene un codigo QR
  *
- * @apiUse SizeHeader
+ * @apiParam  {String} code Código a generar - Requerido
+ *
+ * @apiParam  {String} size Tamaño 100|200|400|600|800 - Opcional
  *
  * @apiSuccessExample {png} Respuesta
  *    Imagen en formato png
@@ -24,16 +26,16 @@ import (
  */
 func init() {
 	router().GET(
-		"/barcode/:barcode",
+		"/qr",
 		validateBarcode,
 		getBarcode,
 	)
 }
 
 func validateBarcode(c *gin.Context) {
-	barcodeStr := c.Param("barcode")
+	barcodeStr, ok := c.GetQuery("code")
 
-	if len(barcodeStr) <= 0 || len(barcodeStr) > 1024 {
+	if !ok || len(barcodeStr) <= 0 || len(barcodeStr) > 1024 {
 		c.Error(err.NewCustom(400, "Invalid Barcode"))
 		c.Abort()
 		return
@@ -41,7 +43,7 @@ func validateBarcode(c *gin.Context) {
 }
 
 func getBarcode(c *gin.Context) {
-	barcodeStr := c.Param("barcode")
+	barcodeStr, _ := c.GetQuery("code")
 	scale := getSizeParam(c)
 
 	png, err := qrcode.Encode(barcodeStr, qrcode.Medium, scale)
@@ -54,18 +56,8 @@ func getBarcode(c *gin.Context) {
 	c.Data(200, "image/png", png)
 }
 
-/**
- * @apiDefine SizeHeader
- *
- * @apiExample {String} size : Parametro url o header
- *    size=[100|200|400|600|800]
- */
-
 func getSizeParam(c *gin.Context) int {
-	headerSize, ok := c.GetQuery("size")
-	if !ok {
-		headerSize = c.GetHeader("size")
-	}
+	headerSize, _ := c.GetQuery("size")
 
 	return normalizeParamSize(headerSize)
 }
