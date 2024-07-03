@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/nmarsollier/go_barcode/rest/routes"
+	"github.com/nmarsollier/barcodego/rest/routes"
 )
 
 func main() {

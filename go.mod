@@ -1,4 +1,4 @@
-module github.com/nmarsollier/go_barcode
+module github.com/nmarsollier/barcodego
 
 go 1.14
 

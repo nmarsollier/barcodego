@@ -2,6 +2,7 @@
 *.log
 .history
 www
+vendor
 
 # Dependencies
 node_modules

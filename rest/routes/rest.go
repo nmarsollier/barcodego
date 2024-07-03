@@ -2,7 +2,7 @@ package routes
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/nmarsollier/go_barcode/rest/middlewares"
+	"github.com/nmarsollier/barcodego/rest/middlewares"
 )
 
 // Start server in 8080 port
